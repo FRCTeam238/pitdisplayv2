@@ -1,3 +1,24 @@
 {
-  "sponsors": []
+  "sponsors": [
+    {
+      "name": "Thank You to Our Generous Sponsors",
+      "logo": null,
+      "url": null
+    },
+    {
+      "name": "BAE Systems",
+      "logo": "Copy of bae-systems-logo-black-and-white.png",
+      "url": null
+    },
+    {
+      "name": "Crusaders",
+      "logo": "Logos-Manchester-School-District-Vertical.png",
+      "url": null
+    },
+    {
+      "name": "Globe",
+      "logo": "MilleniumLogo-Globe.png",
+      "url": null
+    }
+  ]
 }

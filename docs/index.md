@@ -9,20 +9,15 @@ hide:
 <div class="pit-page pit-page--home" markdown="1">
 
 <header class="pit-topbar" markdown="span">
-**MMHS FRC 238 Operations**{: .pit-location }
-[![FIRST Robotics Team 238](assets/logo-yellow.png){ .pit-brand__logo }](./){: .pit-brand }
-**frc238.org**{: .pit-location .pit-location--end }
+[![FIRST Robotics Team 238](assets/sponsors/Logo%20Wide%20Yellow.png){ .pit-brand__logo }](./){: .pit-brand }
 </header>
 
 <section class="pit-hero" markdown="1">
 
-Pit Display
-{ .pit-kicker }
 
-# *FIRST*<sup>&reg;</sup> Robotics Team 238 { .pit-title }
+#
 
-Explore our team, robot, outreach, sponsors, and event information.
-{ .pit-lede }
+
 
 </section>
 
@@ -30,7 +25,6 @@ Explore our team, robot, outreach, sponsors, and event information.
 - [**Robot** *Learn about our robot!*](robot/)
 - [**Team** *Learn about our team!*](team/)
 - [**Outreach** *Learn about our outreach!*](outreach/)
-- [**Sponsors** *Learn about our sponsors!*](sponsors/)
 - [**Event** *Event information!*](event/)
 </nav>
 
@@ -44,7 +38,7 @@ Explore our team, robot, outreach, sponsors, and event information.
 <footer class="pit-footer" markdown="1">
 *FIRST*<sup>&reg;</sup> Robotics Team 238
 
-MMHS FRC 238 Operations
+
 
 [About this site](./about/){: .pit-about-link }
 </footer>

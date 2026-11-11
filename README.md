@@ -50,6 +50,9 @@ For detailed guidance, examples, and style references, read
 
 ## Build the event page
 
+For a student-friendly, step-by-step version of this implementation, see
+[`WALKTHROUGH.md`](WALKTHROUGH.md).
+
 `scripts/Build-Event-Page.py` reads event data from
 [The Blue Alliance](https://www.thebluealliance.com/) and updates the event
 page every five minutes. It requires an API key.

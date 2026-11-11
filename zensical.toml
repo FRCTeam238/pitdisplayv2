@@ -5,6 +5,10 @@ site_description = "MMHS FRC 238 pit display"
 site_author = "FIRST Robotics Team 238"
 copyright = "&copy; 2026 FIRST Robotics Team 238"
 
+exclude_docs = """
+event-template.md
+"""
+
 nav = [
   { "Home" = "index.md" },
   { "Robot" = "robot.md" },

@@ -91,9 +91,12 @@ rather than a documentation site.
 | Path | Purpose |
 | --- | --- |
 | `docs/*.md` | Page source. This is where content is edited. |
+| `docs/event-template.md` | Template used to generate the event page. |
 | `docs/stylesheets/extra.css` | All custom colors, layout, and component styles. |
 | `docs/javascripts/sponsors.js` | Sponsor ticker and sponsor grid renderer. |
 | `docs/assets/` | Team logo, favicon, and sponsor logos. |
+| `scripts/Build-Event-Page.py` | Fetches TBA data and writes `docs/event.md`. |
+| `.cache/tba.json` | ETag cache for The Blue Alliance API. |
 | `zensical.toml` | Site name, URL, navigation, theme, and Markdown extensions. |
 | `pyproject.toml` | uv project and Zensical dependency. |
 | `site/` | Generated output. Do not edit; it is rebuilt. |
@@ -104,11 +107,14 @@ rather than a documentation site.
 uv sync
 uv run zensical serve --open
 uv run zensical build
+uv run scripts/Build-Event-Page.py
 ```
 
 - `uv sync` installs the Python environment and dependencies.
 - `uv run zensical serve --open` starts a live preview in the browser.
 - `uv run zensical build` writes the final site to `site/`.
+- `uv run scripts/Build-Event-Page.py` updates the event page every five
+  minutes. Add `--once` to update it a single time and exit.
 
 Install uv from [docs.astral.sh/uv](https://docs.astral.sh/uv/) if it is not
 already available. The preview reloads when a file changes. Stop it with
@@ -141,7 +147,7 @@ will not be processed.
 | Team | `docs/team.md` |
 | Outreach | `docs/outreach.md` |
 | Sponsors | `docs/sponsors.md` |
-| Event | `docs/event.md` |
+| Event | `docs/event.md` (generated from `docs/event-template.md`) |
 | This guide | `docs/about.md` |
 
 ### Update the home page
@@ -156,6 +162,24 @@ The home page has four editable areas:
 Keep the folder descriptions short. The home screen is sized for five folders;
 if a sixth folder is added, update the `.pit-folders ul` grid in
 `docs/stylesheets/extra.css` and retest at **1440×810**.
+
+### Update the event page
+
+`docs/event.md` is generated; do not edit it by hand. Edit
+`docs/event-template.md` instead, then run:
+
+```bash
+uv run scripts/Build-Event-Page.py --once
+```
+
+The script selects the team's current event automatically: an in-progress
+event, then the next upcoming event, then the most recent past event. Set
+`TBA_EVENT_KEY` in `.env` to force a specific event. While the script runs, it
+updates the page every five minutes.
+
+The Blue Alliance responses are cached in `.cache/tba.json` and revalidated
+with ETags. Delete that file to force a full refresh. Queue times are estimated
+from the scheduled match time and `QUEUE_LEAD_MINUTES`.
 
 ### Add a new screen
 
@@ -521,14 +545,15 @@ Create the file under `docs/`, add a link, and add the page to `nav` in
 
 ### Before an event
 
-- Update the event page with dates, location, and status.
+- Confirm `.env` has a valid `TBA_API_KEY`.
+- Run `uv run scripts/Build-Event-Page.py` and check the event page.
 - Confirm robot facts, team facts, and sponsor names.
 - Check that the sponsor JSON and logos are current.
 - Test the site at **1440×810**.
 
 ### After an event
 
-- Update results, awards, and the event status.
+- Leave the event builder running so results and awards stay current.
 - Replace outdated photos or sponsor logos.
 - Check for broken links.
 

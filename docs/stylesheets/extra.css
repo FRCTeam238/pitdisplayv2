@@ -421,6 +421,16 @@ html {
   text-transform: uppercase;
 }
 
+.md-typeset .pit-facts--compact ul {
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+  gap: 0.5rem;
+}
+
+.md-typeset .pit-facts--compact li {
+  padding: 0.5rem 0.65rem;
+  font-size: clamp(0.85rem, 1.3vw, 1rem);
+}
+
 .md-typeset .pit-panel {
   margin: 0.75rem 0;
   padding: clamp(0.85rem, 2vw, 1.15rem);
@@ -465,6 +475,20 @@ html {
 .md-typeset .pit-hashtags {
   color: var(--team-yellow);
   font-weight: bold;
+}
+
+.md-typeset .pit-alliance {
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.md-typeset .pit-alliance--red {
+  color: #ff6b6b;
+}
+
+.md-typeset .pit-alliance--blue {
+  color: #6bb6ff;
 }
 
 .md-typeset .pit-sponsor-grid {

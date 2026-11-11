@@ -52,7 +52,7 @@ For detailed guidance, examples, and style references, read
 
 `scripts/Build-Event-Page.py` reads event data from
 [The Blue Alliance](https://www.thebluealliance.com/) and updates the event
-page. It requires an API key.
+page every five minutes. It requires an API key.
 
 1. Copy `.env.example` to `.env`.
 2. Add your The Blue Alliance API key:
@@ -66,6 +66,34 @@ page. It requires an API key.
    ```bash
    uv run scripts/Build-Event-Page.py
    ```
+
+   Add `--once` to build the page one time and exit:
+
+   ```bash
+   uv run scripts/Build-Event-Page.py --once
+   ```
+
+The script renders `docs/event-template.md` and writes `docs/event.md`. If
+`zensical serve` is running, the page rebuilds automatically.
+
+The event is selected automatically from the team's events for the current
+year: an in-progress event wins, then the next upcoming event, then the most
+recent past event. Override it with `TBA_EVENT_KEY` or change the year with
+`TBA_YEAR`.
+
+The Blue Alliance supports ETags, so responses are cached in
+`.cache/tba.json`. After the first download, unchanged endpoints return
+`304 Not Modified` and the cached JSON is reused. Delete the cache file to
+force a full refresh.
+
+Optional settings:
+
+| Variable | Default | Purpose |
+| --- | --- | --- |
+| `TBA_EVENT_KEY` | auto | Force a specific TBA event key. |
+| `TBA_YEAR` | current year | Year used for automatic event selection. |
+| `EVENT_POLL_SECONDS` | `300` | Seconds between updates. |
+| `QUEUE_LEAD_MINUTES` | `15` | Minutes before a match to estimate queue time. |
 
 The `.env` file is ignored by git and must never be committed.
 

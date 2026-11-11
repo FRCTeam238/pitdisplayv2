@@ -19,37 +19,55 @@ hide:
 Event information
 { .pit-kicker }
 
-# Event { .pit-title }
+# {{EVENT_NAME}} { .pit-title }
 
-Competition details, schedules, and what to expect at the event.
+{{EVENT_LEDE}}
 { .pit-lede }
 
-In progress
+{{EVENT_STATUS}}
 { .pit-status }
 
 <section class="pit-facts" aria-label="Event details" markdown="1">
-- **Event**
-  Coming soon
 - **Date**
-  Coming soon
+  {{EVENT_DATE}}
 - **Location**
-  Coming soon
+  {{EVENT_LOCATION}}
+- **Rank**
+  {{TEAM_RANK}}
+- **Record**
+  {{TEAM_RECORD}}
+- **Alliance**
+  {{TEAM_ALLIANCE}}
 </section>
 
 <div class="pit-columns" markdown="1">
 
 <section class="pit-panel" markdown="1">
-## Event information
+## Next match
 
-Event information is being updated. Check back for the competition schedule,
-venue details, and ways to cheer on Team 238.
+{{NEXT_MATCH}}
 </section>
 
 <section class="pit-panel" markdown="1">
-## Follow the team
+## Overall stats
 
-Follow *FIRST*<sup>&reg;</sup> Robotics Team 238 online with
-**#frc238**{: .pit-hashtags } and **#crusaders**{: .pit-hashtags }.
+{{OVERALL_STATS}}
+</section>
+
+</div>
+
+<div class="pit-columns" markdown="1">
+
+<section class="pit-panel" markdown="1">
+## Playoff alliance
+
+{{ALLIANCE}}
+</section>
+
+<section class="pit-panel" markdown="1">
+## Upcoming matches
+
+{{UPCOMING_MATCHES}}
 </section>
 
 </div>
@@ -60,6 +78,8 @@ Follow *FIRST*<sup>&reg;</sup> Robotics Team 238 online with
 *FIRST*<sup>&reg;</sup> Robotics Team 238
 
 MMHS FRC 238 Operations
+
+Updated {{UPDATED_AT}}
 </footer>
 
 </div>

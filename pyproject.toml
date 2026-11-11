@@ -4,13 +4,11 @@ version = "0.1.0"
 requires-python = ">=3.14"
 dependencies = [
     "python-dotenv",
-    "tba-api-v3client",
+    "tzdata",
+    "urllib3>=2.0",
 ]
 
 [dependency-groups]
 dev = [
     "zensical>=0.0.73",
 ]
-
-[tool.uv.sources]
-tba-api-v3client = { git = "https://github.com/TBA-API/tba-api-client-python.git" }
